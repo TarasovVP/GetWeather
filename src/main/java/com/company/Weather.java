@@ -1,13 +1,14 @@
 package com.company;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Weather {
-
+    private ArrayList<String> listTime = new ArrayList<>();
     private ArrayList <Float> listTemp = new ArrayList <>();
     private ArrayList <Integer> listId = new ArrayList <>();
     private ArrayList <String> listIcon = new ArrayList <>();
-    private ArrayList <String> listTime = new ArrayList <>();
+
 
 
     public int getIdWeather(int index) {
@@ -19,11 +20,11 @@ public class Weather {
         listId.add(idWeather);
     }
 
-    public float getTemp(int index) {
+    float getTemp(int index) {
         return listTemp.get(index);
     }
 
-    public void setTemp(float temp) {
+    void setTemp(float temp) {
         listTemp.add(temp);
     }
 
@@ -31,13 +32,12 @@ public class Weather {
         return listIcon.get(index);
     }
 
-    public void setIcon(String icon) {
+    void setIcon(String icon) {
         listIcon.add(icon);
     }
+    LocalTime getTime(int index) {
 
-    public String getTime(int index) {
-
-        return listTime.get(index);
+        return LocalTime.parse(listTime.get(index).substring(11, 16));
     }
 
     public void setTime(String date) {

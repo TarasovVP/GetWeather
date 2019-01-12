@@ -1,18 +1,27 @@
 package com.company;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
+import java.util.Scanner;
+
 public class Main {
 
-    public static void main(String[] args) {
-        Weather weather = null;
+    public static void main(String[] args){
+        Weather weather = new Weather();
+        String city;
 
-        String data = ((new HTTPGet()).httpget("Dnipro"));
-        weather = GetWeathear.getWeather(data);
-        System.out.println("At " + weather.getTime(0).substring(10, 16) + " temperature will be "+ Math.round((weather.getTemp(0) - 273.15))+"°");
-        System.out.println("At " + weather.getTime(1).substring(10, 16) + " temperature will be "+ Math.round((weather.getTemp(1) - 273.15))+"°");
-        System.out.println("At " + weather.getTime(2).substring(10, 16) + " temperature will be "+ Math.round((weather.getTemp(2) - 273.15))+"°");
-        System.out.println("At " + weather.getTime(3).substring(10, 16) + " temperature will be "+ Math.round((weather.getTemp(3) - 273.15))+"°");
-        System.out.println("At " + weather.getTime(4).substring(10, 16) + " temperature will be "+ Math.round((weather.getTemp(4) - 273.15))+"°");
-        System.out.println("At " + weather.getTime(5).substring(10, 16) + " temperature will be "+ Math.round((weather.getTemp(5) - 273.15))+"°");
+        do {
+            Scanner sc = new Scanner(System.in);
+            city = sc.nextLine();
+            String data = ((new HTTPGet()).httpget(city));
+            weather = GetWeathear.getWeather(data);
+            for (int i = 0; i <=5 ; i++) {
+                System.out.println("At " + weather.getTime(i) + " temperature will be " + Math.round((weather.getTemp(i) - 273.15)) + "°");
+            }
+        }while (!"stop".equals(city));
+
+
 
 
 

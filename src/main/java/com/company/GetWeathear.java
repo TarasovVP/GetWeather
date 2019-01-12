@@ -5,10 +5,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class GetWeathear {
+class GetWeathear {
 
-    public static Weather getWeather(String data) throws JSONException {
+    static Weather getWeather(String data) throws JSONException {
         Weather weather = new Weather();
+        Location location = new Location();
 
         JSONObject jObj = null;
 
