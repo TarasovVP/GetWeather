@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Weather {
 
-    private ArrayList<Float> listTemp = new ArrayList<>();
-    private ArrayList<Integer> listId = new ArrayList<>();
-    private ArrayList<String> listIcon = new ArrayList<>();
-
+    private ArrayList <Float> listTemp = new ArrayList <>();
+    private ArrayList <Integer> listId = new ArrayList <>();
+    private ArrayList <String> listIcon = new ArrayList <>();
+    private ArrayList <String> listTime = new ArrayList <>();
 
 
     public int getIdWeather(int index) {
@@ -35,6 +35,17 @@ public class Weather {
         listIcon.add(icon);
     }
 
+    public String getTime(int index) {
+
+        return listTime.get(index);
+    }
+
+    public void setTime(String date) {
+        listTime.add(date);
+    }
 
 
 }
+
+
+
